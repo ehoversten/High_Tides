@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
@@ -18,11 +17,24 @@ function App() {
     //     console.log("Data: ", data);
     //   })
     //   .catch(err => {
+    //      console.log(err.response.data.message);
+    //      console.log(err.response.status);
+    //      console.log(err.response.header);
     //     throw err;
     //   });
-    let response = await searchTides('test');
-    console.log("Response: ", response);
-    setTides(response.data.predictions);
+    try {
+      let response = await searchTides('test');
+      console.log("Response: ", response);
+      setTides(response.data.predictions);
+    } catch(err) {
+      if(err.response) {
+        console.log(err.response.data.message);
+        console.log(err.response.status);
+        console.log(err.response.header);
+      } else {
+        console.log(`Error: ${err.message}`);
+      }
+    }
   }
 
   return (

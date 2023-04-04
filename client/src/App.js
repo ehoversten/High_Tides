@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 import searchTides from './utils/tidesAPI';
-import axios from 'axios';
+// import axios from 'axios';
 
 function App() {
   const [tides, setTides] = useState([]);
@@ -42,6 +43,7 @@ function App() {
       <header className="App-header">
         <h1>Testing</h1>
         <Header />
+        <Footer />
       </header>
     </div>
   );

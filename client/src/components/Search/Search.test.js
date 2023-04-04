@@ -9,7 +9,7 @@ describe("Tests for Search Component", () => {
         expect(searchInputElement).toBeInTheDocument();
     });
     
-    test('renders search input', () => {
+    test('renders search input label', () => {
         render(<Search />);
         const inputElement = screen.getByPlaceholderText(/Enter Search Location/i);
         expect(inputElement).toBeInTheDocument();
@@ -18,7 +18,7 @@ describe("Tests for Search Component", () => {
     test('renders search input as empty', () => {
         render(<Search />);
         const searchInputElement = screen.getByRole('textbox');
-        expect(searchInputElement).toBe("");
+        expect(searchInputElement.value).toBe("");
     });
    
     test('renders search input', () => {

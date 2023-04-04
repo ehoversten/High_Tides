@@ -11,7 +11,7 @@ describe("Tests for Footer Component", () => {
    
     test("renders react list item", () => {
         render(<Footer />);
-        const listElement = screen.getByText(/react/i);
+        const listElement = screen.getByText('React');
         expect(listElement).toBeInTheDocument();
     });
 

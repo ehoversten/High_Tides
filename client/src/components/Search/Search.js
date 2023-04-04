@@ -10,7 +10,7 @@ function Search() {
             <div className="search-form-container">
                 <form action="" className="search-form">
                     <label htmlFor="search">Enter Search Location</label>
-                    <input id="search" type="text" placeholder="Enter Search Location" />
+                    <input id="search" type="text" placeholder="Enter Search Location" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}/>
                 </form>
             </div>
         </header>

@@ -3,7 +3,13 @@ import './App.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import searchTides from './utils/tidesAPI';
+import MapLayout from './components/Map/Map';
+
+
+import Map from 'react-map-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
 // import axios from 'axios';
+
 
 function App() {
   const [tides, setTides] = useState([]);
@@ -43,6 +49,17 @@ function App() {
       <header className="App-header">
         <h1>Testing</h1>
         <Header />
+        {/* <MapLayout /> */}
+        <Map
+            initialViewState={{
+              longitude: -72.5,
+              latitude: 40.99,
+              zoom: 10
+            }}
+            style={{width: 800, height: 400}}
+            mapStyle="mapbox://styles/mapbox/streets-v9"
+            mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+          />
         <Footer />
       </header>
     </div>

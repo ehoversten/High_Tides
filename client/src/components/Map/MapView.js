@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Map from 'react-map-gl';
+import Map, { Marker, GeolocateControl } from 'react-map-gl';
 
 import 'mapbox-gl/dist/mapbox-gl.css';
 
@@ -10,16 +10,26 @@ function MapView() {
     <Map
       id="mymap"
       initialViewState={{
-        longitude: -72.5,
-        latitude: 40.99,
-        zoom:11
+        longitude: -72.25,
+        latitude: 41.04,
+        zoom:10
       }}
-      style={{width: '100vw', height: 600}}
-      mapStyle="mapbox://styles/mapbox/outdoors-v9"
-      // mapStyle="mapbox://styles/mapbox/streets-v9"
-      // mapStyle="mapbox://styles/mapbox/mineral-v5"
+      style={{width: '100vw', height: 350}}
+      mapStyle="mapbox://styles/mapbox/outdoors-v11"
+      // mapStyle="mapbox://styles/mapbox/streets-v11"
+      // mapStyle="mapbox://styles/mapbox/satellite-v9"
+      // mapStyle="mapbox://styles/mapbox/dark-v10"
+      // mapStyle="mapbox://styles/mapbox/satellite-streets-v11"
       mapboxAccessToken={MAPBOX_TOKEN}
-    />
+    >
+      <Marker longitude={-72.5} latitude={40.99} anchor="bottom" >
+      {/* <img src="./pin.png" /> */}
+      </Marker>
+      <Marker longitude={-71.95451} latitude={41.03594} anchor="bottom" color="#654453">
+        {/* <img src="./pin.png" /> */}
+      </Marker>
+      {/* <GeolocateControl /> */}
+    </Map>
   );
 }
 

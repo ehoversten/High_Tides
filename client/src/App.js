@@ -4,7 +4,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import searchTides from './utils/tidesAPI';
 import MapLayout from './components/Map/Map';
-
+import MapView from './components/Map/MapView';
 
 import Map, { Marker, MapProvider } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
@@ -49,10 +49,10 @@ function App() {
       <header className="App-header">
         <h1>Testing</h1>
         <Header />
-        {/* <MapProvider>
-          <MapLayout /> 
-        </MapProvider> */}
-        <MapLayout /> 
+        <MapProvider>
+          <MapView /> 
+        </MapProvider>
+        {/* <MapLayout />  */}
         {/* <Map
             initialViewState={{
               longitude: -72.5,

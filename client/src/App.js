@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import Search from './components/Search/Search';
-import Card from './components/Card/Card'
+import Display from './components/Display/Display';
+// import Search from './components/Search/Search';
+// import Card from './components/Card/Card'
 import searchTides from './utils/tidesAPI';
 // import axios from 'axios';
 
@@ -45,8 +46,7 @@ function App() {
       <header className="App-header">
         <h1>Testing</h1>
         <Header />
-        <Search />
-        <Card />
+        <Display />
         <Footer />
       </header>
     </div>

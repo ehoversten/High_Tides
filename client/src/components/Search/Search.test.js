@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import Search from './Search';
 
 describe("Tests for Search Component", () => {
@@ -9,7 +9,7 @@ describe("Tests for Search Component", () => {
         expect(searchInputElement).toBeInTheDocument();
     });
     
-    test('renders search input label', () => {
+    test('renders search input element', () => {
         render(<Search />);
         const inputElement = screen.getByPlaceholderText(/Enter Search Location/i);
         expect(inputElement).toBeInTheDocument();
@@ -21,10 +21,26 @@ describe("Tests for Search Component", () => {
         expect(searchInputElement.value).toBe("");
     });
    
-    test('renders search input', () => {
+    test('renders form search input', () => {
         render(<Search />);
         const searchInputElement = screen.getByRole('textbox', { name: /search/i });
         expect(searchInputElement).toBeInTheDocument();
+    });
+
+    test('should be able to type in input', () => {
+        render(<Search />);
+        const inputElement = screen.getByPlaceholderText(/Enter Search Location/i);
+        fireEvent.change(inputElement, { target: { value: "Greenport" } })
+        expect(inputElement.value).toBe("Greenport");
+    });
+    
+    test('should clear input element after button click', () => {
+        render(<Search />);
+        const inputElement = screen.getByPlaceholderText(/Enter Search Location/i);
+        const buttonElement = screen.getByRole('button', { name: /Search/i });
+        fireEvent.change(inputElement, { target: { value: "Greenport" } });
+        fireEvent.click(buttonElement)
+        expect(inputElement.value).toBe("");
     });
 
 });

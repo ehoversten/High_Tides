@@ -46,7 +46,7 @@ function App() {
       <header className="App-header">
         <h1>Testing</h1>
         <Header />
-        <Display />
+        <Display tides={tides}/>
         <Footer />
       </header>
     </div>
